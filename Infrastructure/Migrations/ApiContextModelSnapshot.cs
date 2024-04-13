@@ -68,6 +68,31 @@ namespace Infrastructure.Migrations
                     b.ToTable("ContactRequests");
                 });
 
+            modelBuilder.Entity("Infrastructure.Entities.CourseDetailEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AuthorImgUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CourseDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WhatYouWillLearn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CourseDetails");
+                });
+
             modelBuilder.Entity("Infrastructure.Entities.CourseEntity", b =>
                 {
                     b.Property<string>("Id")
@@ -81,6 +106,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CourseDetailsId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Created")
@@ -122,7 +150,36 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("CategoryId");
 
+                    b.HasIndex("CourseDetailsId");
+
                     b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("Infrastructure.Entities.ProgramDetailEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CourseDetailEntityId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseDetailEntityId");
+
+                    b.ToTable("ProgramDetails");
                 });
 
             modelBuilder.Entity("Infrastructure.Entities.ServiceEntity", b =>
@@ -192,7 +249,25 @@ namespace Infrastructure.Migrations
                         .WithMany()
                         .HasForeignKey("CategoryId");
 
+                    b.HasOne("Infrastructure.Entities.CourseDetailEntity", "CourseDetails")
+                        .WithMany()
+                        .HasForeignKey("CourseDetailsId");
+
                     b.Navigation("Category");
+
+                    b.Navigation("CourseDetails");
+                });
+
+            modelBuilder.Entity("Infrastructure.Entities.ProgramDetailEntity", b =>
+                {
+                    b.HasOne("Infrastructure.Entities.CourseDetailEntity", null)
+                        .WithMany("ProgramDetails")
+                        .HasForeignKey("CourseDetailEntityId");
+                });
+
+            modelBuilder.Entity("Infrastructure.Entities.CourseDetailEntity", b =>
+                {
+                    b.Navigation("ProgramDetails");
                 });
 #pragma warning restore 612, 618
         }

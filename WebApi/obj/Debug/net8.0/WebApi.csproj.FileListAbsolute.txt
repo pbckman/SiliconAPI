@@ -136,3 +136,4 @@ C:\Skoluppgifter\ASP_1_WebApi\SiliconWebApi\WebApi\obj\Debug\net8.0\refint\WebAp
 C:\Skoluppgifter\ASP_1_WebApi\SiliconWebApi\WebApi\obj\Debug\net8.0\WebApi.pdb
 C:\Skoluppgifter\ASP_1_WebApi\SiliconWebApi\WebApi\obj\Debug\net8.0\WebApi.genruntimeconfig.cache
 C:\Skoluppgifter\ASP_1_WebApi\SiliconWebApi\WebApi\obj\Debug\net8.0\ref\WebApi.dll
+C:\Skoluppgifter\ASP_1_WebApi\SiliconWebApi\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json

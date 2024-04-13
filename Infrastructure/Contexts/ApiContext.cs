@@ -14,5 +14,7 @@ public class ApiContext(DbContextOptions<ApiContext> options) : DbContext(option
     public DbSet<ServiceEntity> Services { get; set; }
     public DbSet<ContactRequestEntity> ContactRequests { get; set; }
 
-    
+    public DbSet<CourseDetailEntity> CourseDetails { get; set; }
+
+    public DbSet<ProgramDetailEntity> ProgramDetails { get; set; }
 }

@@ -1,8 +1,10 @@
 ﻿using Infrastructure.Contexts;
+using Infrastructure.Entities;
 using Infrastructure.Factories;
 using Infrastructure.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace WebApi.Controllers;
 
@@ -41,5 +43,21 @@ public class CourseController(ApiContext context) : ControllerBase
 
         return Ok(result);
     }
+
+    [HttpGet("{courseId}")]
+    public async Task<ActionResult<CourseDetailEntity>> GetCourseDetials(string courseId)
+    {
+        var courseDetails = await _context.Courses
+            .Include(x => x.CourseDetails)
+                .ThenInclude(xd => xd.ProgramDetails)
+            .FirstOrDefaultAsync(x => x.Id == courseId);
+
+        if (courseDetails == null)
+            return NotFound();
+
+        return Ok(courseDetails);
+    }
+
+
 
 }

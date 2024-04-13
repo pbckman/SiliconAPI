@@ -12,3 +12,4 @@ C:\Skoluppgifter\ASP_1_WebApi\SiliconWebApi\Infrastructure\obj\Debug\net8.0\refi
 C:\Skoluppgifter\ASP_1_WebApi\SiliconWebApi\Infrastructure\obj\Debug\net8.0\Infrastructure.pdb
 C:\Skoluppgifter\ASP_1_WebApi\SiliconWebApi\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
 C:\Skoluppgifter\ASP_1_WebApi\SiliconWebApi\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
+C:\Skoluppgifter\ASP_1_WebApi\SiliconWebApi\Infrastructure\obj\Debug\net8.0\Infrastructure.sourcelink.json

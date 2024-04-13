@@ -23,4 +23,8 @@ public class CourseEntity
     public int? CategoryId { get; set; }
     public CategoryEntity? Category { get; set; }
 
+    public int? CourseDetailsId { get; set; }
+
+    public CourseDetailEntity? CourseDetails { get; set;}
+
 }
